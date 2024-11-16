@@ -1,5 +1,11 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import Navbar from "../navbar/Navbar";
+import "./votingpage.css";
 
-export default function VotingPage() {
-  return <div></div>;
+export default function VotingPage({ user }) {
+  return (
+    <div className="base">
+      <Navbar user={user} />
+    </div>
+  );
 }

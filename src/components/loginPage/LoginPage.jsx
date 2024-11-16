@@ -1,11 +1,12 @@
 import Button from "../button/Button";
 import InputLog from "../input/InputLog";
 import { useState } from "react";
-import VotingPage from "../votingPage/VotingPage.JSX";
+import VotingPage from "../votingPage/VotingPage";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userP, setUserP] = useState("");
   const [error, setError] = useState("");
 
   const handleLogin = async (e) => {
@@ -21,8 +22,7 @@ export default function LoginPage() {
       );
 
       if (user) {
-        <VotingPage />;
-        localStorage.setItem("user", JSON.stringify(user));
+        setUserP(user);
       } else {
         setError("Invalid email or password");
       }
@@ -31,6 +31,14 @@ export default function LoginPage() {
       console.error(error);
     }
   };
+
+  if (userP !== "") {
+    return (
+      <div>
+        <VotingPage user={userP} />
+      </div>
+    );
+  }
 
   return (
     <div>

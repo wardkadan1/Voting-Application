@@ -1,0 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.base {
+  height: 100vh;
+  background-color: #d0d7d5;
+}
