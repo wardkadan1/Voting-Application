@@ -7,3 +7,14 @@
   height: 100vh;
   background-color: #d0d7d5;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

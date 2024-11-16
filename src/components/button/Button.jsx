@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
-export default function Button({ txt, type }) {
+export default function Button({ className, txt, type, onClick }) {
   return (
     <div>
-      <button type={type}>{txt}</button>
+      <button className={className} type={type} onClick={onClick}>
+        {txt}
+      </button>
     </div>
   );
 }
