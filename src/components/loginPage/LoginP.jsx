@@ -1,7 +1,9 @@
 import Button from "../button/Button";
-import InputLog from "../input/InputLog";
+import InputLog from "./InputLog";
 import { useState } from "react";
 import VotingPage from "../votingPage/VotingPage";
+import Logo from "../../../public/images/vote1.png";
+import "./loginp.css";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -48,11 +50,12 @@ export default function LoginPage() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleLogin}>
+    <div className="loginpage">
+      <form className="box" onSubmit={handleLogin}>
+        <img src={Logo} alt="logo" />
         <InputLog type="email" name="Email" setFunch={setEmail} />
         <InputLog type="password" name="Password" setFunch={setPassword} />
-        <Button txt="Login" type="submit" />
+        <Button className="btn" txt="Login" type="submit" />
       </form>
       <p className="error">{error}</p>
     </div>

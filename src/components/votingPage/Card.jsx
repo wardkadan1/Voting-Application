@@ -1,18 +1,29 @@
 /* eslint-disable react/prop-types */
-import Button from "./../button/Button";
+import { useState } from "react";
 import "./card.css";
+import CardContent from "./CardContent";
 
 export default function Card({ character }) {
+  const [show, setshow] = useState(false);
+  const [btnName, changebtnName] = useState("Vote");
+  const onClick1 = () => {
+    console.log("onClick1");
+    changebtnName("Change Vote");
+    setshow(true);
+  };
+  const onClick2 = () => {
+    console.log("onClick2");
+    setshow(false);
+  };
   return (
-    <div className="card">
-      <section className="image-content">
-        <img src={`images/${character.name}.jpg`} alt="" />
-        <h4 className="votes">Votes: {character.voteCount}</h4>
-      </section>
-      <section className="down">
-        <h3>{character.name}</h3>
-        <Button className={"btn"} txt="Vote" />
-      </section>
+    <div>
+      <CardContent
+        character={character}
+        onClick1={onClick1}
+        onClick2={onClick2}
+        txt={btnName}
+        show={show}
+      />
     </div>
   );
 }

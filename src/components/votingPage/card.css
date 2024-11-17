@@ -63,7 +63,7 @@
   cursor: pointer;
 }
 
-.btn:hover {
+.down .btn:hover {
   color: white;
   background-color: #385b87;
 }

@@ -11,7 +11,7 @@ export default function VotingPage({ user, characters }) {
         <h1>Vote Page</h1>
         <section className="cards">
           {characters.map((character) => (
-            <Card key={character.id} character={character} />
+            <Card key={character.id} user={user} character={character} />
           ))}
         </section>
       </main>
