@@ -4,9 +4,17 @@ import Navbar from "../navbar/Navbar";
 import Card from "./Card";
 import "./votingpage.css";
 import { useEffect } from "react";
+import Statics from "../statics/Statics";
 
-export default function VotingPage({ user, isUserVoted, setVote }) {
+export default function VotingPage({
+  user,
+  users,
+  isUserVoted,
+  setVote,
+  setUser,
+}) {
   const [characters, setcharacters] = useState([]);
+  const [page, setPage] = useState("Vote");
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -20,23 +28,34 @@ export default function VotingPage({ user, isUserVoted, setVote }) {
     fetchCharacters();
   }, [isUserVoted]);
 
-  return (
-    <div className="base">
-      <Navbar user={user} />
-      <main>
-        <h1>Vote Page</h1>
-        <section className="cards">
-          {characters.map((character) => (
-            <Card
-              key={character.id}
-              user={user}
-              character={character}
-              setVote={setVote}
-              isUserVoted={isUserVoted}
-            />
-          ))}
-        </section>
-      </main>
-    </div>
-  );
+  if (page === "Vote") {
+    return (
+      <div className="base">
+        <Navbar user={user} setUser={setUser} setPage={setPage} />
+        <main>
+          <h1>Vote Page</h1>
+          <section className="cards">
+            {characters.map((character) => (
+              <Card
+                key={character.id}
+                user={user}
+                character={character}
+                setVote={setVote}
+                isUserVoted={isUserVoted}
+              />
+            ))}
+          </section>
+        </main>
+      </div>
+    );
+  } else {
+    return (
+      <div className="base">
+        <Navbar user={user} setUser={setUser} setPage={setPage} />
+        <main>
+          <Statics users={users} />
+        </main>
+      </div>
+    );
+  }
 }

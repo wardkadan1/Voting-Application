@@ -42,6 +42,8 @@ export default function LoginPage() {
         setUserP(user);
         if (user.vote) {
           setIsUserVoted(true);
+        } else {
+          setIsUserVoted(false);
         }
       } else {
         setError("Invalid email or password");
@@ -59,6 +61,8 @@ export default function LoginPage() {
           setVote={setIsUserVoted}
           isUserVoted={isUserVoted}
           user={userP}
+          users={userS}
+          setUser={setUserP}
         />
       </div>
     );
