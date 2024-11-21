@@ -14,7 +14,7 @@ export default function Navbar({ user }) {
   if (user.type === "admin")
     return (
       <nav className="navBox">
-        <img src={Logo} alt="logo" />
+        <img className="logo" src={Logo} alt="logo" />
         <Button
           className="dropbtn"
           txt="Menu"

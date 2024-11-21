@@ -5,9 +5,15 @@
 
 .loginpage {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   margin-top: 20vh;
-  text-align: center;
+  align-items: center;
+}
+
+.loginpage p {
+  margin-top: 3vh;
+  color: red;
+  font-size: 25px;
 }
 
 .box {

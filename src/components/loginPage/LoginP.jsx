@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Button from "../button/Button";
 import InputLog from "./InputLog";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import VotingPage from "../votingPage/VotingPage";
 import Logo from "../../../public/images/vote1.png";
 import "./loginp.css";
@@ -9,13 +10,12 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userP, setUserP] = useState("");
-  const [characters, setcharacters] = useState("");
+  const [userS, setUsers] = useState([]);
   const [error, setError] = useState("");
+  const [isUserVoted, setIsUserVoted] = useState(false);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-
-    try {
+  useEffect(() => {
+    const fetchCharacters = async () => {
       const responseU = await fetch(
         "https://67373d98aafa2ef222332359.mockapi.io/users"
       );
@@ -23,15 +23,26 @@ export default function LoginPage() {
       const user = users.find(
         (u) => u.email === email && u.password === password
       );
-
-      const responseP = await fetch(
-        "https://67373d98aafa2ef222332359.mockapi.io/presidents"
-      );
-      const charactersA = await responseP.json();
-
       if (user) {
         setUserP(user);
-        setcharacters(charactersA);
+      }
+      setUsers(users);
+    };
+    fetchCharacters();
+  }, [isUserVoted]);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const user = userS.find(
+        (u) => u.email === email && u.password === password
+      );
+      if (user) {
+        setUserP(user);
+        if (user.vote) {
+          setIsUserVoted(true);
+        }
       } else {
         setError("Invalid email or password");
       }
@@ -41,10 +52,14 @@ export default function LoginPage() {
     }
   };
 
-  if (userP !== "") {
+  if (userP) {
     return (
       <div>
-        <VotingPage characters={characters} user={userP} />
+        <VotingPage
+          setVote={setIsUserVoted}
+          isUserVoted={isUserVoted}
+          user={userP}
+        />
       </div>
     );
   }

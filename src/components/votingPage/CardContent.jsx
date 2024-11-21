@@ -1,14 +1,18 @@
 /* eslint-disable react/prop-types */
 import Button from "./../button/Button";
 import "./card.css";
+import { useState, useEffect } from "react";
 
-export default function CardContent({
-  character,
-  onClick1,
-  onClick2,
-  txt,
-  show,
-}) {
+export default function CardContent({ character, onClick, isUserVoted }) {
+  const [Txt, setTxt] = useState("");
+  useEffect(() => {
+    if (isUserVoted) {
+      setTxt("Change Vote");
+    } else {
+      setTxt("Vote");
+    }
+  }, [isUserVoted]);
+
   return (
     <div className="card">
       <section className="image-content">
@@ -17,8 +21,7 @@ export default function CardContent({
       </section>
       <section className="down">
         <h3>{character.name}</h3>
-        {!show && <Button className={"btn"} txt={txt} onClick={onClick1} />}
-        {show && <Button className={"btn"} txt={txt} onClick={onClick2} />}
+        <Button className={"btn"} txt={Txt} onClick={onClick} />
       </section>
     </div>
   );
