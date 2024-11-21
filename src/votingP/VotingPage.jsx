@@ -1,12 +1,18 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import Navbar from "../navbar/Navbar";
-import Card from "./Card";
 import "./votingpage.css";
 import { useEffect } from "react";
-import Statics from "../statics/Statics";
+import Navbar from "./../components/navbar/Navbar";
+import Card from "./Card";
+import Statics from "./../components/statics/Statics";
 
-export function VotingPage({ user, users, isUserVoted, setVote, setUser }) {
+export default function VotingPage({
+  user,
+  users,
+  isUserVoted,
+  setVote,
+  setUser,
+}) {
   const [characters, setcharacters] = useState([]);
   const [page, setPage] = useState("Vote");
 

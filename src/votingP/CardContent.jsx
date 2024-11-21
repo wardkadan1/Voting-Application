@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import Button from "./../button/Button";
+import Button from "../components/button/Button";
 import "./card.css";
 import { useState, useEffect } from "react";
 
