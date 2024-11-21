@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Logo from "../../public/images/vote1.png";
 import "./loginp.css";
-import VotingPage from "./../components/votingPage/VotingPage";
+import { VotingPage } from "./../components/votingPage/VotingPage";
 import InputLog from "./InputLog";
 import Button from "./../components/button/Button";
 
