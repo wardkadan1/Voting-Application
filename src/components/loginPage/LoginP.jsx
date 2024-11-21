@@ -2,9 +2,9 @@
 import Button from "../button/Button";
 import InputLog from "./InputLog";
 import { useState, useEffect } from "react";
-import VotingPage from "../votingPage/VotingPage";
 import Logo from "../../../public/images/vote1.png";
 import "./loginp.css";
+import VotingPage from "./../votingPage/VotingPage";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
