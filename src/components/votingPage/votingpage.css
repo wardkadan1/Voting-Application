@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.base {
+  height: 100vh;
+  background-color: #d0d7d5;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
