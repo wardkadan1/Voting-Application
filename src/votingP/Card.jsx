@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./card.css";
 import CardContent from "./CardContent";
-import { getCharacter } from "../../data";
+import { getCharacter } from "../data";
 
 export default function Card({ user, character, setVote, isUserVoted }) {
   const onClick = async () => {
