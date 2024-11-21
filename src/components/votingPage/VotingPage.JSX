@@ -6,13 +6,7 @@ import "./votingpage.css";
 import { useEffect } from "react";
 import Statics from "../statics/Statics";
 
-export default function VotingPage({
-  user,
-  users,
-  isUserVoted,
-  setVote,
-  setUser,
-}) {
+export function VotingPage({ user, users, isUserVoted, setVote, setUser }) {
   const [characters, setcharacters] = useState([]);
   const [page, setPage] = useState("Vote");
 
