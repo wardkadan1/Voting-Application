@@ -1,12 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Button from "../button/Button";
-import InputLog from "./InputLog";
-import { useState, useEffect } from "react";
-import Logo from "../../../public/images/vote1.png";
-import "./loginp.css";
-import VotingPage from "./../votingPage/VotingPage";
 
-export default function LoginPage() {
+import { useState, useEffect } from "react";
+import Logo from "../../public/images/vote1.png";
+import "./loginp.css";
+import VotingPage from "./../components/votingPage/VotingPage";
+import InputLog from "./InputLog";
+import Button from "./../components/button/Button";
+
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userP, setUserP] = useState("");
