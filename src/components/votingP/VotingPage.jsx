@@ -2,9 +2,9 @@
 import { useState } from "react";
 import "./votingpage.css";
 import { useEffect } from "react";
-import Navbar from "./../components/navbar/Navbar";
+import Navbar from "../navbar/Navbar";
 import Card from "./Card";
-import Statics from "./../components/statics/Statics";
+import Statics from "../statics/Statics";
 
 export default function VotingPage({
   user,
