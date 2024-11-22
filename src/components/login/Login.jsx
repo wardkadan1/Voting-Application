@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import { useState, useEffect } from "react";
-import Logo from "../../public/images/vote1.png";
+import Logo from "../../../public/images/vote1.png";
 import "./loginp.css";
 import InputLog from "./InputLog";
 import Button from "../button/Button";
